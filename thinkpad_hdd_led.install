@@ -1,0 +1,22 @@
+pre_install() {
+}
+
+post_install() {
+    cp thinkpad-hdd-led.service /etc/systemd/system
+    echo ">>> To enable thinkpad hdd service launch systemctl enable thinkpad-hdd-led"
+}
+
+pre_upgrade() {
+}
+
+post_upgrade() {
+}
+
+pre_remove() {
+    rm /etc/systemd/system/thinkpad-hdd-led.service
+}
+
+post_remove() {
+}
+
+# vim:set ts=2 sw=2 et:

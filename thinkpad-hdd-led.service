@@ -1,0 +1,9 @@
+[Unit]
+Description=ThinkPad use led as HDD usage indicator
+
+[Service]
+ExecStart=thinkpad_hdd_led
+StandardOutput=null
+
+[Install]
+WantedBy=multi-user.target
