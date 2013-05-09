@@ -6,26 +6,24 @@ pkgdesc="Use thinkpad's power led as hdd led light"
 url="https://github.com/nenjordi/thinkpad_hdd_led"
 arch=('x86_64' 'i686')
 license=('GPLv3')
-depends=('gcc ')
+depends=('gcc')
 optdepends=()
 makedepends=()
 conflicts=()
 replaces=()
 backup=()
-install='thinkpad_hdd_led.install'
-source=("http://www.server.tld/${pkgname}-${pkgver}.tar.gz"
-        "foo.desktop")
-md5sums=('a0afa52d60cea6c0363a2a8cb39a4095'
-         'a0afa52d60cea6c0363a2a8cb39a4095')
+install=''
+source=('git://github.com/nenjordi/thinkpad_hdd_led.git')
+md5sums=('SKIP')
 
 build() {
-  cd "${srcdir}/${pkgname}-${pkgver}"
+  cd "${srcdir}/"
   make
 }
 
 package() {
-  cd "${srcdir}/${pkgname}-${pkgver}"
-  make DESTDIR="${pkgdir}" install
+mkdir -p $pkgdir/usr/sbin
+make PREFIX="$pkgdir/usr" install
 }
 
 # vim:set ts=2 sw=2 et:
